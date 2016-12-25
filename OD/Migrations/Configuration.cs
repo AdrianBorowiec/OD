@@ -2,6 +2,7 @@ namespace OD.Migrations
 {
     using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -15,24 +16,39 @@ namespace OD.Migrations
 
         protected override void Seed(Db ctx)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
-            ctx.Users.AddOrUpdate(
-                new User { FirstName = "Adrian", LastName = "Borowiec", City = "Poznan", Country = "Polska", Nickname = "Boro", Password = "pw", PhoneNumber = "606221460" },
-                new User { FirstName = "Kamila", LastName = "Ziemba", City = "Poznan", Country = "Polska", Nickname = "Kama", Password = "pw", PhoneNumber = "725323006" },
+            var users = new List<User>
+            {
+                new User { FirstName = "Adrian", LastName = "Borowiec", City = "Poznañ", Country = "Polska", Nickname = "Boro", Password = "pw", PhoneNumber = "606221460" },
+                new User { FirstName = "Kamila", LastName = "Ziemba", City = "Poznañ", Country = "Polska", Nickname = "Kama", Password = "pw", PhoneNumber = "725323006" },
                 new User { FirstName = "Agnieszka", LastName = "Pastwa", City = "Czersk", Country = "Polska", Nickname = "Aga", Password = "pw", PhoneNumber = "662612291" }
-                );
+            };
+
+            users.ForEach(x => ctx.Users.AddOrUpdate(n => n.Nickname, x));
+            ctx.SaveChanges();
+
+
+            var producers = new List<Producer>
+            {
+                new Producer { Name = "Ferrero", City = "Alba", Country = "W³ochy", ApartmentNumber = "1", Street = "Piazzale Pietro Ferrero", PhoneNumber = "(+39) 0039 0173 295111" },
+                new Producer { Name = "Wedel", City = "Warszawa", Country = "Polska", ApartmentNumber = "28/30", Street = "Zamoyskiego", PhoneNumber = "(+48) 226 707 700" },
+                new Producer { Name = "Mars Incorporated", City = "McLean", Country = "USA", ApartmentNumber = "6885", Street = "Elm", PhoneNumber = "(+1) 703-821-4900" }
+            };
+
+            producers.ForEach(x => ctx.Producers.AddOrUpdate(n => n.Name, x));
+            ctx.SaveChanges();
+
+
+            var products = new List<Product>
+            {
+                new Product { Name = "Ferrero Rocher", Price = 12, ProductType = ProductTypeEnum.Praliny, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Ferrero"), ImageUrl = "~/Images/Products/FerreroRocher.jpg" },
+                new Product { Name = "Kinder Bueno", Price = 4, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Ferrero"), ImageUrl = "~/Images/Products/FerreroKinderBueno.jpg" },
+                new Product { Name = "Mleczna Czekolada", Price = 10, ProductType = ProductTypeEnum.Czekolada, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Wedel"), ImageUrl = "~/Images/Products/WedelMlecznaCzekolada.jpg" },
+                new Product { Name = "WW", Price = 4, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Wedel"), ImageUrl = "~/Images/Products/WedelWW.jpg" },
+                new Product { Name = "Snickers", Price = 3, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Mars Incorporated"), ImageUrl = "~/Images/Products/MarsIncorporatedSnickers.jpg" }
+            };
+
+            products.ForEach(x => ctx.Products.AddOrUpdate(n => n.Name, x));
+            ctx.SaveChanges();
         }
     }
 }

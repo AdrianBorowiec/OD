@@ -51,12 +51,12 @@ namespace OD.Models
 
     public enum ProductTypeEnum
     {
-        None = 1,
-        CandyBar = 2,
-        Candy = 3,
-        Jelly = 4,
-        Chocolate = 5,
-        Cookies = 6,
-        Praline = 7
+        Niezdefiniowane = 1,
+        Batonik = 2,
+        Cukierki = 3,
+        Żelki = 4,
+        Czekolada = 5,
+        Ciasteczka = 6,
+        Praliny = 7
     };
 }

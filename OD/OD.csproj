@@ -168,6 +168,8 @@
     <Compile Include="Configurations\ProductConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProducersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Db.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -176,6 +178,10 @@
     <Compile Include="Migrations\201612251415071_InitialMigration.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.Designer.cs">
       <DependentUpon>201612251415071_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612251951224_PoprawkaDlugosciTelefonu.cs" />
+    <Compile Include="Migrations\201612251951224_PoprawkaDlugosciTelefonu.Designer.cs">
+      <DependentUpon>201612251951224_PoprawkaDlugosciTelefonu.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Producer.cs" />
@@ -193,6 +199,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Products\FerreroKinderBueno.jpg" />
+    <Content Include="Images\Products\FerreroRocher.jpg" />
+    <Content Include="Images\Products\WedelMlecznaCzekolada.jpg" />
+    <Content Include="Images\Products\WedelWW.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -226,10 +236,19 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Producers\Create.cshtml" />
+    <Content Include="Views\Producers\Delete.cshtml" />
+    <Content Include="Views\Producers\Details.cshtml" />
+    <Content Include="Views\Producers\Edit.cshtml" />
+    <Content Include="Views\Producers\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +262,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612251415071_InitialMigration.resx">
       <DependentUpon>201612251415071_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612251951224_PoprawkaDlugosciTelefonu.resx">
+      <DependentUpon>201612251951224_PoprawkaDlugosciTelefonu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

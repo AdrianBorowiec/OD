@@ -20,7 +20,7 @@ namespace OD.Domain.Configurations
             Property(x => x.Country).IsRequired();
             Property(x => x.Country).HasMaxLength(50);
             Property(x => x.PhoneNumber).IsRequired();
-            Property(x => x.PhoneNumber).HasMaxLength(20);
+            Property(x => x.PhoneNumber).HasMaxLength(30);
         }
     }
 }
