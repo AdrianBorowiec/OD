@@ -6,8 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using OD;
 using OD.Models;
+using OD.DAL;
 
 namespace OD.Controllers
 {
