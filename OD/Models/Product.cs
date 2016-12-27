@@ -40,7 +40,7 @@ namespace OD.Models
         public virtual Producer Producer { get; set; }
 
         /// <summary>
-        /// Ścieżka do zdjęcia (folder ~/ProductImages)
+        /// Ścieżka do zdjęcia (folder ~/Images/Products)
         /// </summary>
         public string ImageUrl { get; set; }
 

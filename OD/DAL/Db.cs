@@ -8,7 +8,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
-namespace OD
+namespace OD.DAL
 {
     public class Db : DbContext
     {

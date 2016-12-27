@@ -170,11 +170,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProducersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Db.cs" />
+    <Compile Include="DAL\Db.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\ForeignKeyNamingConvention.cs" />
+    <Compile Include="Infrastructure\CustomHtmlHelpers.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.Designer.cs">
       <DependentUpon>201612251415071_InitialMigration.cs</DependentUpon>
@@ -201,6 +202,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Products\FerreroKinderBueno.jpg" />
     <Content Include="Images\Products\FerreroRocher.jpg" />
+    <Content Include="Images\Products\MarsIncorporatedSnickers.jpg" />
     <Content Include="Images\Products\WedelMlecznaCzekolada.jpg" />
     <Content Include="Images\Products\WedelWW.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
