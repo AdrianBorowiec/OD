@@ -1,6 +1,8 @@
 ﻿@using OD.Infrastructure
 @model IEnumerable<OD.Models.Product>
 
+@Html.Hidden("choosenQuantity")
+
 <div class="col-xs-12 col-md-12">
     <div class="row">
         @foreach (var product in Model)
@@ -22,20 +24,11 @@
                             <p>
                                 <b>Dostępna Ilość:</b> <span>@product.Quantity</span>
                             </p>
-                            @*
-                            <p>
-                                Ponizej mial byc slider, ale gowno nie dziala i do konca nie wiem czemu :/
-                                Nie bede sie nad tym specjalnie rozwodzic ale jakby co zostawiam, moze kiedys sie jeszcze pobawie :D
-                                Link do JSFiddle - http://jsfiddle.net/jearles/Dt7Ka/
 
-                                <b>Dodaj do koszyka:</b> <input data-bind="value: quantity, valueUpdate: 'afterkeydown'" style="width: 40px"/>
-                                <div style="margin: 10px" data-bind="slider: quantity, sliderOptions: {min: 0, max: @product.Quantity, range: 'min', step: 1}"></div>
-                            </p>
-                            *@
-                            <p>
-                                <b>Dodaj do koszyka: </b>
-                                <input style="width: 40px" type="text" name="quantity" />
-                            </p>
+                            <div class="slider" id="slider@(product.Id)" data-inp="quantity@(product.Id)" data-min="1" data-max="@product.Quantity" style="margin-top: 30px;"></div>
+                            <b>Dodaj do koszyka:</b> 
+                            <input type="text" name="quantity" id="quantity@(product.Id)" style="width: 40px; margin: 10px; text-align: center;" readonly />
+
                             <input type="submit" class="btn btn-info" id="AddToCartButton" value="Dodaj do koszyka" />
                         </div>
                     </div>
@@ -46,40 +39,31 @@
 </div>
 
 
-@section Scripts {
-    <script type="text/javascript">
-        // To ponizej mialo byc do suwaka jakby co :D
-        ko.bindingHandlers.slider = {
-            init: function (element, valueAccessor, allBindingsAccessor) {
-                var options = allBindingsAccessor().sliderOptions || {};
-                $(element).slider(options);
-                ko.utils.registerEventHandler(element, "slidechange", function (event, ui) {
-                    var observable = valueAccessor();
-                    observable(ui.value);
-                });
-                ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
-                    $(element).slider("destroy");
-                });
-                ko.utils.registerEventHandler(element, "slide", function (event, ui) {
-                    var observable = valueAccessor();
-                    observable(ui.value);
-                });
-            },
-            update: function (element, valueAccessor) {
-                var value = ko.utils.unwrapObservable(valueAccessor());
-                if (isNaN(value)) value = 0;
-                $(element).slider("value", value);
-
-            }
-        };
+@section Scripts{
 
 
-        var ViewModel = function () {
-            var self = this;
 
-            self.quantity = ko.observable(0);
-        }
+    <script>
 
-        ko.applyBindings(new ViewModel());
+        $('.slider').each(function () {
+
+            var $this = $(this),
+                        min = $this.data('min'),
+                        max = $this.data('max');
+
+            $this.slider({
+                min: min,
+                max: max,
+                slide: function (event, ui) {
+                    var value = ui.value;
+
+                    $("#" + $(this).data("inp")).val(ui.value);
+                    $('choosenQuantity').val(value);
+                }
+            });
+        });
+       
     </script>
-}    
+
+}
+  

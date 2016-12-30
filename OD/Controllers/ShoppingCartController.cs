@@ -14,6 +14,7 @@ namespace OD.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult AddToCart(int id, int quantity)
         {
             return RedirectToAction("Index");
