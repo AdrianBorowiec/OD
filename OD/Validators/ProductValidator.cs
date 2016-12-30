@@ -11,6 +11,7 @@ namespace OD.Domain.Validators
             RuleFor(x => x.Name).NotEmpty();
             RuleFor(x => x.Price).NotEmpty();
             RuleFor(x => x.Producer).NotEmpty();
+            RuleFor(x => x.Quantity).GreaterThanOrEqualTo(0);
         }
     }
 }

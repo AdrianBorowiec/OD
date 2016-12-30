@@ -44,6 +44,11 @@ namespace OD.Models
         /// </summary>
         public string ImageUrl { get; set; }
 
+        /// <summary>
+        /// Dostępna ilośc produktu.
+        /// </summary>
+        public int? Quantity { get; set; }
+
         public Product()
         {
         }

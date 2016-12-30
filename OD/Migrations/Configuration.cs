@@ -41,11 +41,11 @@ namespace OD.Migrations
 
             var products = new List<Product>
             {
-                new Product { Name = "Ferrero Rocher", Price = 12, ProductType = ProductTypeEnum.Praliny, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Ferrero"), ImageUrl = "~/Images/Products/FerreroRocher.jpg" },
-                new Product { Name = "Kinder Bueno", Price = 4, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Ferrero"), ImageUrl = "~/Images/Products/FerreroKinderBueno.jpg" },
-                new Product { Name = "Mleczna Czekolada", Price = 10, ProductType = ProductTypeEnum.Czekolada, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Wedel"), ImageUrl = "~/Images/Products/WedelMlecznaCzekolada.jpg" },
-                new Product { Name = "WW", Price = 4, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Wedel"), ImageUrl = "~/Images/Products/WedelWW.jpg" },
-                new Product { Name = "Snickers", Price = 3, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Mars Incorporated"), ImageUrl = "~/Images/Products/MarsIncorporatedSnickers.jpg" }
+                new Product { Name = "Ferrero Rocher", Price = 12, ProductType = ProductTypeEnum.Praliny, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Ferrero"), ImageUrl = "~/Images/Products/FerreroRocher.jpg", Quantity = 20 },
+                new Product { Name = "Kinder Bueno", Price = 4, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Ferrero"), ImageUrl = "~/Images/Products/FerreroKinderBueno.jpg", Quantity = 20 },
+                new Product { Name = "Mleczna Czekolada", Price = 10, ProductType = ProductTypeEnum.Czekolada, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Wedel"), ImageUrl = "~/Images/Products/WedelMlecznaCzekolada.jpg", Quantity = 20 },
+                new Product { Name = "WW", Price = 4, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Wedel"), ImageUrl = "~/Images/Products/WedelWW.jpg", Quantity = 20 },
+                new Product { Name = "Snickers", Price = 3, ProductType = ProductTypeEnum.Batonik, Producer = ctx.Producers.FirstOrDefault(x => x.Name == "Mars Incorporated"), ImageUrl = "~/Images/Products/MarsIncorporatedSnickers.jpg", Quantity = 20 }
             };
 
             products.ForEach(x => ctx.Products.AddOrUpdate(n => n.Name, x));

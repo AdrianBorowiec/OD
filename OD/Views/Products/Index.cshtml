@@ -1,37 +1,69 @@
 ﻿@using OD.Infrastructure
 @model IEnumerable<OD.Models.Product>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-danger" })
-</p>
-
+@Html.Hidden("choosenQuantity")
 
 <div class="col-xs-12 col-md-12">
     <div class="row">
         @foreach (var product in Model)
+        {
+            using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = product.Id }, FormMethod.Post))
             {
-            <div class="col-xs-12 col-md-3" style="padding: 15px;">
-                <div class="thumbnail">
-                    @Html.Image(@product.ImageUrl, @product.Name + " Foto")
-                    <div class="caption text-center">
-                        <p>
-                            <b>Nazwa:</b> <span>@product.Name</span>
-                        </p>
-                        <p>
-                            <b>Cena:</b> <span>@product.Price ZŁ</span>
-                        </p>
-                        <p class="text-center">
-                            @Html.ActionLink("Dodaj do koszyka", "AddToCart", "ShoppingCart", new { id = product.Id }, new { @class = "btn btn-info" })
-                        </p>
+                @Html.AntiForgeryToken()
+
+                <div class="col-xs-12 col-md-3" style="padding: 15px;">
+                    <div class="thumbnail">
+                        @Html.Image(@product.ImageUrl, @product.Name + " Foto")
+                        <div class="caption text-center">
+                            <p>
+                                <b>Nazwa:</b> <span>@product.Name</span>
+                            </p>
+                            <p>
+                                <b>Cena:</b> <span>@product.Price ZŁ</span>
+                            </p>
+                            <p>
+                                <b>Dostępna Ilość:</b> <span>@product.Quantity</span>
+                            </p>
+
+                            <div class="slider" id="slider@(product.Id)" data-inp="quantity@(product.Id)" data-min="1" data-max="@product.Quantity" style="margin-top: 30px;"></div>
+                            <b>Dodaj do koszyka:</b> 
+                            <input type="text" name="quantity" id="quantity@(product.Id)" style="width: 40px; margin: 10px; text-align: center;" readonly />
+
+                            <input type="submit" class="btn btn-info" id="AddToCartButton" value="Dodaj do koszyka" />
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </div>
+
+
+@section Scripts{
+
+
+
+    <script>
+
+        $('.slider').each(function () {
+
+            var $this = $(this),
+                        min = $this.data('min'),
+                        max = $this.data('max');
+
+            $this.slider({
+                min: min,
+                max: max,
+                slide: function (event, ui) {
+                    var value = ui.value;
+
+                    $("#" + $(this).data("inp")).val(ui.value);
+                    $('choosenQuantity').val(value);
+                }
+            });
+        });
+       
+    </script>
+
+}
+  
