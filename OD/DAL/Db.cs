@@ -1,4 +1,4 @@
-﻿using OD.Domain.Configurations;
+﻿using OD.Configurations;
 using OD.Infrastructure;
 using OD.Models;
 using System;
@@ -25,6 +25,8 @@ namespace OD.DAL
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Producer> Producers { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
 
         #endregion
 
@@ -35,6 +37,7 @@ namespace OD.DAL
             // Ustawienia ogólne.
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.AddBefore<ForeignKeyIndexConvention>(new ForeignKeyNamingConvention());
+            this.Configuration.LazyLoadingEnabled = true;
 
             /// <summary>
             /// Konfiguracje tabeli.
@@ -44,6 +47,8 @@ namespace OD.DAL
             modelBuilder.Configurations.Add(new CustomerConfiguration());
             modelBuilder.Configurations.Add(new ProducerConfiguration());
             modelBuilder.Configurations.Add(new ProductConfiguration());
+            modelBuilder.Configurations.Add(new OrderConfiguration());
+            modelBuilder.Configurations.Add(new OrderDetailsConfiguration());
 
             #endregion
         }

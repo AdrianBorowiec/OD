@@ -27,7 +27,7 @@
 
                             <div class="slider" id="slider@(product.Id)" data-inp="quantity@(product.Id)" data-min="1" data-max="@product.Quantity" style="margin-top: 30px;"></div>
                             <b>Wybrana ilość:</b> 
-                            <input type="text" name="quantity" id="quantity@(product.Id)" style="width: 40px; margin: 10px; text-align: center;" readonly />
+                            <input type="text" name="quantity" id="quantity@(product.Id)" style="width: 40px; margin: 10px; text-align: center;" readonly value="1" />
 
                             <input type="submit" class="btn btn-info" id="AddToCartButton" value="Dodaj do koszyka" />
                         </div>
@@ -54,7 +54,6 @@
             $this.slider({
                 min: min,
                 max: max,
-                value: 1,
                 slide: function (event, ui) {
                     var value = ui.value;
 

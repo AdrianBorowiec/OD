@@ -53,8 +53,14 @@ namespace OD.Models
         /// </summary>
         public string PhoneNumber { get; set; }
 
+        /// <summary>
+        /// Lista zamówień.
+        /// </summary>
+        public virtual ICollection<Order> Orders { get; set; }
+
         public Customer()
         {
+            this.Orders = new HashSet<Order>();
         }
     }
 }
