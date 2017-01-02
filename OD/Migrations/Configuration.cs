@@ -17,14 +17,14 @@ namespace OD.Migrations
 
         protected override void Seed(Db ctx)
         {
-            var users = new List<User>
+            var users = new List<Customer>
             {
-                new User { FirstName = "Adrian", LastName = "Borowiec", City = "Poznañ", Country = "Polska", Nickname = "Boro", Password = "pw", PhoneNumber = "606221460" },
-                new User { FirstName = "Kamila", LastName = "Ziemba", City = "Poznañ", Country = "Polska", Nickname = "Kama", Password = "pw", PhoneNumber = "725323006" },
-                new User { FirstName = "Agnieszka", LastName = "Pastwa", City = "Czersk", Country = "Polska", Nickname = "Aga", Password = "pw", PhoneNumber = "662612291" }
+                new Customer { FirstName = "Adrian", LastName = "Borowiec", City = "Poznañ", Country = "Polska", Nickname = "Boro", Password = "pw", PhoneNumber = "606221460" },
+                new Customer { FirstName = "Kamila", LastName = "Ziemba", City = "Poznañ", Country = "Polska", Nickname = "Kama", Password = "pw", PhoneNumber = "725323006" },
+                new Customer { FirstName = "Agnieszka", LastName = "Pastwa", City = "Czersk", Country = "Polska", Nickname = "Aga", Password = "pw", PhoneNumber = "662612291" }
             };
 
-            users.ForEach(x => ctx.Users.AddOrUpdate(n => n.Nickname, x));
+            users.ForEach(x => ctx.Customers.AddOrUpdate(n => n.Nickname, x));
             ctx.SaveChanges();
 
 

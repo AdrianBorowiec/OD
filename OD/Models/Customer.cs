@@ -8,10 +8,10 @@ using System.Web;
 namespace OD.Models
 {
     /// <summary>
-    /// Użytkownik
+    /// Klient.
     /// </summary>
-    [Validator(typeof(UserValidator))]
-    public class User
+    [Validator(typeof(CustomerValidator))]
+    public class Customer
     {
         /// <summary>
         /// Identyfikator.
@@ -53,7 +53,7 @@ namespace OD.Models
         /// </summary>
         public string PhoneNumber { get; set; }
 
-        public User()
+        public Customer()
         {
         }
     }

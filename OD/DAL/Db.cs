@@ -22,7 +22,7 @@ namespace OD.DAL
         /// </summary>
         #region DO UZUPEŁNIANIA - Tabele w bazie danych. Sortowane alfabetycznie!
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Producer> Producers { get; set; }
         public DbSet<Product> Products { get; set; }
 
@@ -41,7 +41,7 @@ namespace OD.DAL
             /// </summary>
             #region DO UZUPEŁNIANIA - Konfiguracje dotyczące każdej tabeli w bazie danych
 
-            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new CustomerConfiguration());
             modelBuilder.Configurations.Add(new ProducerConfiguration());
             modelBuilder.Configurations.Add(new ProductConfiguration());
 

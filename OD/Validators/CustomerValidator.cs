@@ -3,9 +3,9 @@ using OD.Models;
 
 namespace OD.Domain.Validators
 {
-    public class UserValidator : AbstractValidator<User>
+    public class CustomerValidator : AbstractValidator<Customer>
     {
-        public UserValidator()
+        public CustomerValidator()
         {
             RuleFor(x => x.Id).NotEmpty();
             RuleFor(x => x.Nickname).NotEmpty();
