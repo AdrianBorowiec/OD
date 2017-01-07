@@ -8,10 +8,10 @@ using System.Web;
 namespace OD.Models
 {
     /// <summary>
-    /// Użytkownik
+    /// Klient.
     /// </summary>
-    [Validator(typeof(UserValidator))]
-    public class User
+    [Validator(typeof(CustomerValidator))]
+    public class Customer
     {
         /// <summary>
         /// Identyfikator.
@@ -53,8 +53,14 @@ namespace OD.Models
         /// </summary>
         public string PhoneNumber { get; set; }
 
-        public User()
+        /// <summary>
+        /// Lista zamówień.
+        /// </summary>
+        public virtual ICollection<Order> Orders { get; set; }
+
+        public Customer()
         {
+            this.Orders = new HashSet<Order>();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using OD.Models;
 using System.Data.Entity.ModelConfiguration;
 
-namespace OD.Domain.Configurations
+namespace OD.Configurations
 {
     public class ProducerConfiguration : EntityTypeConfiguration<Producer>
     {

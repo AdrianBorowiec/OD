@@ -1,13 +1,13 @@
 ﻿using OD.Models;
 using System.Data.Entity.ModelConfiguration;
 
-namespace OD.Domain.Configurations
+namespace OD.Configurations
 {
-    public class UserConfiguration : EntityTypeConfiguration<User>
+    public class CustomerConfiguration : EntityTypeConfiguration<Customer>
     {
-        public UserConfiguration()
+        public CustomerConfiguration()
         {
-            ToTable("Users");
+            ToTable("Customers");
 
             Property(x => x.Id).IsRequired();
             Property(x => x.Nickname).IsRequired();
