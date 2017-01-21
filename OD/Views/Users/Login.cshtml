@@ -1,0 +1,33 @@
+﻿@model OD.Models.Users
+
+<head>
+    <style>
+        .textbox {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .button2 {
+            margin-left: 60px;
+        }
+    </style>
+
+</head>
+
+<h2>Logowanie</h2>
+<div class="panel-login">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary();
+        <div class="textbox">
+            <label> Login:</label>
+            @Html.TextBoxFor(x => x.Name )
+        </div>
+        <div class="textbox">
+            <label>Hasło:</label>
+            @Html.TextBoxFor(x => x.Password)
+        </div>
+        <input type="submit" value="Zaloguje się!" class="btn btn-primary btn-lg button2" />
+    }
+</div>
+

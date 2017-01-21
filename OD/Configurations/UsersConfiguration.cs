@@ -7,13 +7,13 @@ using System.Web;
 
 namespace OD.Configurations
 {
-    public class UserConfiguration : EntityTypeConfiguration<User>
+    public class UsersConfiguration : EntityTypeConfiguration<Users>
     {
-        public UserConfiguration()
+        public UsersConfiguration()
         {
             ToTable("User");
 
-            Property(x => x.Id).IsRequired();
+            Property(x => x.Id).IsOptional();
             Property(x => x.Name).IsRequired();
             Property(x => x.Password).IsRequired();
             Property(x => x.Email).IsOptional();

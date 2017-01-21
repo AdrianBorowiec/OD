@@ -170,16 +170,19 @@
     <Compile Include="Configurations\ProducerConfiguration.cs" />
     <Compile Include="Configurations\ProductConfiguration.cs" />
     <Compile Include="Configurations\CustomerConfiguration.cs" />
-    <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="Configurations\UsersConfiguration.cs" />
     <Compile Include="Controllers\ProducersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\Db.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\ForeignKeyNamingConvention.cs" />
     <Compile Include="Infrastructure\CustomHtmlHelpers.cs" />
+    <Compile Include="Infrastructure\FormsAuthProvider.cs" />
+    <Compile Include="Infrastructure\IAuthProvider.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.Designer.cs">
       <DependentUpon>201612251415071_InitialMigration.cs</DependentUpon>
@@ -204,21 +207,40 @@
     <Compile Include="Migrations\201701211625055_User.Designer.cs">
       <DependentUpon>201701211625055_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701211829535_User1.cs" />
+    <Compile Include="Migrations\201701211829535_User1.Designer.cs">
+      <DependentUpon>201701211829535_User1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701212101128_Poprawki.cs" />
+    <Compile Include="Migrations\201701212101128_Poprawki.Designer.cs">
+      <DependentUpon>201701212101128_Poprawki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701212256414_Poprawki2.cs" />
+    <Compile Include="Migrations\201701212256414_Poprawki2.Designer.cs">
+      <DependentUpon>201701212256414_Poprawki2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701212319443_Poprawki3.cs" />
+    <Compile Include="Migrations\201701212319443_Poprawki3.Designer.cs">
+      <DependentUpon>201701212319443_Poprawki3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701212350321_User2.cs" />
+    <Compile Include="Migrations\201701212350321_User2.Designer.cs">
+      <DependentUpon>201701212350321_User2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\MainPageViewModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\Producer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\OrderDetailsValidator.cs" />
     <Compile Include="Validators\OrderValidator.cs" />
     <Compile Include="Validators\ProducerValidator.cs" />
     <Compile Include="Validators\ProductValidator.cs" />
     <Compile Include="Validators\CustomerValidator.cs" />
-    <Compile Include="Validators\UserValidator.cs" />
+    <Compile Include="Validators\UsersValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -320,6 +342,12 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Products\Login.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -350,6 +378,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701211625055_User.resx">
       <DependentUpon>201701211625055_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701211829535_User1.resx">
+      <DependentUpon>201701211829535_User1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212101128_Poprawki.resx">
+      <DependentUpon>201701212101128_Poprawki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212256414_Poprawki2.resx">
+      <DependentUpon>201701212256414_Poprawki2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212319443_Poprawki3.resx">
+      <DependentUpon>201701212319443_Poprawki3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212350321_User2.resx">
+      <DependentUpon>201701212350321_User2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
