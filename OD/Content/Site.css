@@ -26,3 +26,9 @@ textarea {
 .slider{
     margin: 10px;
 }
+
+.login{
+    height: 300px;
+    width: 200px;
+    background-color: red;
+}
