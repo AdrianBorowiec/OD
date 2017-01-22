@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Infrastructure\ForeignKeyNamingConvention.cs" />
     <Compile Include="Infrastructure\CustomHtmlHelpers.cs" />
+    <Compile Include="Infrastructure\Hashing.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.Designer.cs">
       <DependentUpon>201612251415071_InitialMigration.cs</DependentUpon>
@@ -218,6 +219,14 @@
     <Compile Include="Migrations\201701222037552_DrobaPoprawka.cs" />
     <Compile Include="Migrations\201701222037552_DrobaPoprawka.Designer.cs">
       <DependentUpon>201701222037552_DrobaPoprawka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222142368_DodanieHashowania.cs" />
+    <Compile Include="Migrations\201701222142368_DodanieHashowania.Designer.cs">
+      <DependentUpon>201701222142368_DodanieHashowania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222146582_DodanieHashowania2.cs" />
+    <Compile Include="Migrations\201701222146582_DodanieHashowania2.Designer.cs">
+      <DependentUpon>201701222146582_DodanieHashowania2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Order.cs" />
@@ -378,6 +387,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701222037552_DrobaPoprawka.resx">
       <DependentUpon>201701222037552_DrobaPoprawka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701222142368_DodanieHashowania.resx">
+      <DependentUpon>201701222142368_DodanieHashowania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701222146582_DodanieHashowania2.resx">
+      <DependentUpon>201701222146582_DodanieHashowania2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

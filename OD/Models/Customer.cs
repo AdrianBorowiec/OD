@@ -35,6 +35,11 @@ namespace OD.Models
         public string Password { get; set; }
 
         /// <summary>
+        /// Sól wykorzystywana do hashowania
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
         /// Powtórz hasło.
         /// </summary>
         [Display(Name = "Powtórz hasło")]

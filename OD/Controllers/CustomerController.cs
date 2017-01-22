@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using OD.DAL;
 using OD.Domain.Validators;
+using OD.Infrastructure;
 using OD.Models;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,12 @@ namespace OD.Controllers
                     return View();
                 }
 
+                var key = Hashing.GeneratePassword(10);
+                var encodedPassword = Hashing.EncodePassword(customer.Password, key);
+
+                customer.Password = encodedPassword;
+                customer.Code = key;
+
                 db.Customers.Add(customer);
                 db.SaveChanges();
 
@@ -68,7 +75,10 @@ namespace OD.Controllers
                 return View();
             }
 
-            if (customer.Password != model.Password)
+            var code = customer.Code;
+            var encodedPassword = Hashing.EncodePassword(model.Password, code);
+
+            if (customer.Password != encodedPassword)
             {
                 ModelState.AddModelError(string.Empty, "Podane hasło jest niepoprawne, spróbuj ponownie");
                 return View();

@@ -13,7 +13,6 @@ namespace OD.Configurations
             Property(x => x.Nickname).IsRequired();
             Property(x => x.Nickname).HasMaxLength(25);
             Property(x => x.Password).IsRequired();
-            Property(x => x.Password).HasMaxLength(25);
         }
     }
 }
