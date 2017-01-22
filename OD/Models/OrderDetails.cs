@@ -39,12 +39,6 @@ namespace OD.Models
         public int? Quantity { get; set; }
 
         /// <summary>
-        /// Wartośc jednej jednostki produktu.
-        /// </summary>
-        [Display(Name = "Wartośc jednostki")]
-        public decimal? UnitPrice { get; set; }
-
-        /// <summary>
         /// Łączna wartość produktu.
         /// </summary>
         [Display(Name = "Łączna wartość")]

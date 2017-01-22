@@ -26,6 +26,7 @@ namespace OD.Controllers
                 var orderId = (int)Session["OrderId"];
                 var model = db.OrderDetails.Where(x => x.Order.Id == orderId).AsEnumerable();
 
+                ViewBag.Total = model.Sum(x => x.TotalAmount);
                 return View(model);
             }
         }
@@ -45,18 +46,19 @@ namespace OD.Controllers
                 TotalAmount = product.Price * quantity
             };
 
-            // pozniej do poprawki - w tym miejscu sprawdzamy czy aktualnie zalogowany uzytkownik ma juz utworzone zamowienie
-
             Order order;
 
             if (Session["OrderId"] == null)
             {
                 order = new Order();
                 order.OrderStatus = OrderStatus.Nowe;
+                var tempCustomerId = (int)Session["CustomerId"];
+                var customer = db.Customers.FirstOrDefault(x => x.Id == tempCustomerId);
+                order.Customer = customer;
                 db.Orders.Add(order);
                 db.SaveChanges();
-                var temp = db.Orders.OrderByDescending(x => x.Id).First();
-                Session["OrderId"] = temp.Id;
+                var tempOrderId = db.Orders.OrderByDescending(x => x.Id).First();
+                Session["OrderId"] = tempOrderId.Id;
             }
             else
             {
@@ -76,6 +78,7 @@ namespace OD.Controllers
             }
 
             db.SaveChanges();
+            ViewBag.Total = order.OrderDetails.Sum(x => x.TotalAmount);
 
             return View("Index", order.OrderDetails);
         }

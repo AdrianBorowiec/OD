@@ -169,6 +169,7 @@
     <Compile Include="Configurations\ProducerConfiguration.cs" />
     <Compile Include="Configurations\ProductConfiguration.cs" />
     <Compile Include="Configurations\CustomerConfiguration.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProducersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -209,6 +210,14 @@
     <Compile Include="Migrations\201701211814144_xxx.cs" />
     <Compile Include="Migrations\201701211814144_xxx.Designer.cs">
       <DependentUpon>201701211814144_xxx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222002070_PoprawkaKlienta.cs" />
+    <Compile Include="Migrations\201701222002070_PoprawkaKlienta.Designer.cs">
+      <DependentUpon>201701222002070_PoprawkaKlienta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222037552_DrobaPoprawka.cs" />
+    <Compile Include="Migrations\201701222037552_DrobaPoprawka.Designer.cs">
+      <DependentUpon>201701222037552_DrobaPoprawka.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Order.cs" />
@@ -324,10 +333,13 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\EmptyOrder.cshtml" />
     <Content Include="Views\Order\FinishOrder.cshtml" />
+    <Content Include="Views\Customer\LogIn.cshtml" />
+    <Content Include="Views\Customer\SignIn.cshtml" />
+    <Content Include="Views\Customer\Error.cshtml" />
+    <Content Include="Views\Customer\SignInSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -360,6 +372,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701211814144_xxx.resx">
       <DependentUpon>201701211814144_xxx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701222002070_PoprawkaKlienta.resx">
+      <DependentUpon>201701222002070_PoprawkaKlienta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701222037552_DrobaPoprawka.resx">
+      <DependentUpon>201701222037552_DrobaPoprawka.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
