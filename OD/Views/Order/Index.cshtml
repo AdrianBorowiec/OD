@@ -5,7 +5,12 @@
 }
 
 <h2>Koszyk zakupów</h2>
+
 <hr />
+<p>
+    @Html.ActionLink("Opróżnij koszyk", "EmptyOrder", null, new { @class = "btn btn-warning delete-link" })
+</p>
+<br />
 
 <table class="table">
     <tr>
@@ -45,7 +50,7 @@
                 @Html.DisplayFor(modelItem => item.TotalAmount) zł
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger delete-link" })
+                @Html.ActionLink("Usuń pozycję z koszyka", "Delete", new { id = item.Id }, new { @class = "btn btn-danger delete-link" })
             </td>
         </tr>
     }
@@ -56,9 +61,9 @@
 <div id="delete-dialog" title="Potwierdzenie" style="display: none">
     <p>Czy na pewno chcesz usunąć ten element?</p>
 </div>
-
 <p>
-    @Html.ActionLink("Powrót do sklepu", "Index", "Products", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Powrót do sklepu", "Index", "Products", null, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Zakup produkty", "FinishOrder", null, new { @class = "btn btn-info" })
 </p>
 
 <script type="text/javascript">

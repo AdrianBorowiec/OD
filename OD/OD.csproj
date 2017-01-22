@@ -323,6 +323,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\EmptyOrder.cshtml" />
+    <Content Include="Views\Order\FinishOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

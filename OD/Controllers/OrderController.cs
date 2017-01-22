@@ -45,15 +45,14 @@ namespace OD.Controllers
                 TotalAmount = product.Price * quantity
             };
 
-
             // pozniej do poprawki - w tym miejscu sprawdzamy czy aktualnie zalogowany uzytkownik ma juz utworzone zamowienie
-            //var order = db.Orders.Where(x => x.Customer == aktualny uzytkownik)
 
             Order order;
 
             if (Session["OrderId"] == null)
             {
                 order = new Order();
+                order.OrderStatus = OrderStatus.Nowe;
                 db.Orders.Add(order);
                 db.SaveChanges();
                 var temp = db.Orders.OrderByDescending(x => x.Id).First();
@@ -67,8 +66,6 @@ namespace OD.Controllers
 
             if (order.OrderDetails.Any(x => x.Product.Id == orderDetails.Product.Id))
             {
-                //db.Entry(orderDetails).State = EntityState.Modified;
-                //order.OrderDetails.Where(x => x.Product.Id == orderDetails.Product.Id).Select(x => x.Quantity += orderDetails.Quantity);
                 var temp = order.OrderDetails.Single(x => x.Product.Id == orderDetails.Product.Id);
                 db.Entry(temp).State = EntityState.Modified;
                 temp.Quantity += orderDetails.Quantity;
@@ -77,12 +74,41 @@ namespace OD.Controllers
             {
                 order.OrderDetails.Add(orderDetails);
             }
-            
-            //db.OrderDetails.Add(orderDetails);
 
             db.SaveChanges();
 
             return View("Index", order.OrderDetails);
+        }
+       
+        public ActionResult EmptyOrder()
+        {
+            Session.Remove("OrderId");
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult FinishOrder()
+        {
+            var orderId = (int)Session["OrderId"];
+
+            var order = db.Orders.Single(x => x.Id == orderId);
+            db.Entry(order).State = EntityState.Modified;
+
+            order.OrderStatus = OrderStatus.Zakończone;
+            order.TotalAmount = order.OrderDetails.Sum(x => x.TotalAmount);
+
+            foreach (var item in order.OrderDetails)
+            {
+                var product = db.Products.Single(x => x.Id == item.Product.Id);
+                db.Entry(product).State = EntityState.Modified;
+
+                product.Quantity -= item.Quantity;
+            }
+
+            db.SaveChanges();
+            Session.Remove("OrderId");
+
+            return View();
         }
 
         [HttpPost]

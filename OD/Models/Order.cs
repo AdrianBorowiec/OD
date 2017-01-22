@@ -25,7 +25,7 @@ namespace OD.Models
         /// </summary>
         [Display(Name = "Klient")]
         public virtual Customer Customer { get; set; }
-        // tutaaj powinno byc odwolanie do aktualnie zalogowanego klienta czyli np CustomerContext
+        // tutaj powinno byc odwolanie do aktualnie zalogowanego klienta czyli np CustomerContext
 
         /// <summary>
         /// Data utworzenia zamówienia.
@@ -54,6 +54,7 @@ namespace OD.Models
         {
             this.OrderDetails = new HashSet<OrderDetails>();
             this.OrderDT = DateTime.Now;
+            this.OrderStatus = OD.Models.OrderStatus.Nowe;
             //this.Id
         }
     }
@@ -61,8 +62,6 @@ namespace OD.Models
     public enum OrderStatus
     {
         Nowe,
-        Utworzone,
-        Dostarczone,
-        Anulowane
+        Zakończone
     }
 }
