@@ -169,9 +169,9 @@
     <Compile Include="Configurations\ProducerConfiguration.cs" />
     <Compile Include="Configurations\ProductConfiguration.cs" />
     <Compile Include="Configurations\CustomerConfiguration.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProducersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="DAL\Db.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +197,18 @@
     <Compile Include="Migrations\201701021944258_DodanieKlasDotyczacychZamowienia.cs" />
     <Compile Include="Migrations\201701021944258_DodanieKlasDotyczacychZamowienia.Designer.cs">
       <DependentUpon>201701021944258_DodanieKlasDotyczacychZamowienia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701211212579_PozostalosciKoszyka.cs" />
+    <Compile Include="Migrations\201701211212579_PozostalosciKoszyka.Designer.cs">
+      <DependentUpon>201701211212579_PozostalosciKoszyka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701211311094_PozostalosciKoszyka2.cs" />
+    <Compile Include="Migrations\201701211311094_PozostalosciKoszyka2.Designer.cs">
+      <DependentUpon>201701211311094_PozostalosciKoszyka2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701211814144_xxx.cs" />
+    <Compile Include="Migrations\201701211814144_xxx.Designer.cs">
+      <DependentUpon>201701211814144_xxx.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Order.cs" />
@@ -309,7 +321,8 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\EmptyOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -337,6 +350,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701021944258_DodanieKlasDotyczacychZamowienia.resx">
       <DependentUpon>201701021944258_DodanieKlasDotyczacychZamowienia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701211212579_PozostalosciKoszyka.resx">
+      <DependentUpon>201701211212579_PozostalosciKoszyka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701211311094_PozostalosciKoszyka2.resx">
+      <DependentUpon>201701211311094_PozostalosciKoszyka2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701211814144_xxx.resx">
+      <DependentUpon>201701211814144_xxx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

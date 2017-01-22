@@ -2,6 +2,7 @@
 using OD.Validators;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -16,26 +17,32 @@ namespace OD.Models
         /// <summary>
         /// Identyfikator.
         /// </summary>
+        [Display(Name = "Identyfikator")]
         public int? Id { get; set; }
 
         /// <summary>
-        /// Identyfikator klienta.
+        /// Klient.
         /// </summary>
+        [Display(Name = "Klient")]
         public virtual Customer Customer { get; set; }
+        // tutaaj powinno byc odwolanie do aktualnie zalogowanego klienta czyli np CustomerContext
 
         /// <summary>
         /// Data utworzenia zamówienia.
         /// </summary>
-        public DateTime? OrderCreateDT { get; set; }
+        [Display(Name = "Data utworzenia")]
+        public DateTime? OrderDT { get; set; }
 
         /// <summary>
         /// Wartośc zamówienia.
         /// </summary>
-        public int? TotalAmount { get; set; }
+        [Display(Name = "Wartośc")]
+        public decimal? TotalAmount { get; set; }
 
         /// <summary>
         /// Status zamówienia.
         /// </summary>
+        [Display(Name = "Status")]
         public OrderStatus? OrderStatus { get; set; }
 
         /// <summary>
@@ -46,6 +53,8 @@ namespace OD.Models
         public Order()
         {
             this.OrderDetails = new HashSet<OrderDetails>();
+            this.OrderDT = DateTime.Now;
+            //this.Id
         }
     }
 

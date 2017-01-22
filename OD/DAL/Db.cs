@@ -27,7 +27,7 @@ namespace OD.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
-
+        
         #endregion
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace OD.DAL
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new OrderConfiguration());
             modelBuilder.Configurations.Add(new OrderDetailsConfiguration());
-
+            
             #endregion
         }
     }

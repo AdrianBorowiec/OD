@@ -17,7 +17,6 @@ namespace OD.Configurations
             HasRequired(x => x.Order).WithMany(x => x.OrderDetails);
             HasRequired(x => x.Product).WithMany();
             Property(x => x.Quantity).IsRequired();
-            Property(x => x.UnitPrice).IsRequired();
         }
     }
 }

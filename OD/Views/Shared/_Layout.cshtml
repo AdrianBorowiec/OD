@@ -6,10 +6,10 @@
         <title>Tytka Słodyczy</title>
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
-
         @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryUI")
         @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jqueryUI")
+        @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/knockout")       
     </head>
     <body>
@@ -23,7 +23,7 @@
             <div class="col-lg-3">
                 <ul class="nav navbar-inverse">
                     <li style="background-color: #428bca">
-                        @Html.ActionLink("Koszyk", "Index", "ShoppingCart", new { @style = "color: #333333;" })
+                        @Html.ActionLink("Koszyk", "Index", "Order", null, new { @style = "color: #333333;" })
                     </li>
                     <li>
                         @Html.ActionLink("Producenci", "Index", "Producers")

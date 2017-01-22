@@ -14,7 +14,7 @@ namespace OD.Validators
             RuleFor(x => x.Id).NotEmpty();
             RuleFor(x => x.Customer).NotEmpty();
             RuleFor(x => x.OrderStatus).NotEmpty();
-            RuleFor(x => x.OrderCreateDT).NotEmpty();
+            RuleFor(x => x.OrderDT).NotEmpty();
         }
     }
 }
