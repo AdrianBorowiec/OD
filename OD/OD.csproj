@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -181,8 +180,6 @@
     </Compile>
     <Compile Include="Infrastructure\ForeignKeyNamingConvention.cs" />
     <Compile Include="Infrastructure\CustomHtmlHelpers.cs" />
-    <Compile Include="Infrastructure\FormsAuthProvider.cs" />
-    <Compile Include="Infrastructure\IAuthProvider.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.cs" />
     <Compile Include="Migrations\201612251415071_InitialMigration.Designer.cs">
       <DependentUpon>201612251415071_InitialMigration.cs</DependentUpon>
@@ -202,30 +199,6 @@
     <Compile Include="Migrations\201701021944258_DodanieKlasDotyczacychZamowienia.cs" />
     <Compile Include="Migrations\201701021944258_DodanieKlasDotyczacychZamowienia.Designer.cs">
       <DependentUpon>201701021944258_DodanieKlasDotyczacychZamowienia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701211625055_User.cs" />
-    <Compile Include="Migrations\201701211625055_User.Designer.cs">
-      <DependentUpon>201701211625055_User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701211829535_User1.cs" />
-    <Compile Include="Migrations\201701211829535_User1.Designer.cs">
-      <DependentUpon>201701211829535_User1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701212101128_Poprawki.cs" />
-    <Compile Include="Migrations\201701212101128_Poprawki.Designer.cs">
-      <DependentUpon>201701212101128_Poprawki.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701212256414_Poprawki2.cs" />
-    <Compile Include="Migrations\201701212256414_Poprawki2.Designer.cs">
-      <DependentUpon>201701212256414_Poprawki2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701212319443_Poprawki3.cs" />
-    <Compile Include="Migrations\201701212319443_Poprawki3.Designer.cs">
-      <DependentUpon>201701212319443_Poprawki3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701212350321_User2.cs" />
-    <Compile Include="Migrations\201701212350321_User2.Designer.cs">
-      <DependentUpon>201701212350321_User2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Order.cs" />
@@ -375,24 +348,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701021944258_DodanieKlasDotyczacychZamowienia.resx">
       <DependentUpon>201701021944258_DodanieKlasDotyczacychZamowienia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701211625055_User.resx">
-      <DependentUpon>201701211625055_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701211829535_User1.resx">
-      <DependentUpon>201701211829535_User1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701212101128_Poprawki.resx">
-      <DependentUpon>201701212101128_Poprawki.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701212256414_Poprawki2.resx">
-      <DependentUpon>201701212256414_Poprawki2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701212319443_Poprawki3.resx">
-      <DependentUpon>201701212319443_Poprawki3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701212350321_User2.resx">
-      <DependentUpon>201701212350321_User2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
