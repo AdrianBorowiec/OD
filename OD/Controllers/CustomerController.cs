@@ -26,6 +26,31 @@ namespace OD.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult LogIn(Customer model)
+        {
+            var customer = db.Customers.FirstOrDefault(x => x.Nickname == model.Nickname);
+
+            if (customer == null)
+            {
+                ModelState.AddModelError(string.Empty, "Podany użytkownik nie został znaleziony w bazie, proszę spróbować ponownie.");
+                return View();
+            }
+
+            var code = customer.Code;
+            var encodedPassword = Hashing.EncodePassword(model.Password, code);
+
+            if (customer.Password != encodedPassword)
+            {
+                ModelState.AddModelError(string.Empty, "Podane hasło jest niepoprawne, spróbuj ponownie");
+                return View();
+            }
+
+            Session["CustomerId"] = customer.Id;
+
+            return RedirectToAction("Index", "Products");
+        }
+
         [HttpGet]
         public ActionResult SignIn()
         {
@@ -64,29 +89,10 @@ namespace OD.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult LogIn(Customer model)
+        public ActionResult RequestValidationException()
         {
-            var customer = db.Customers.FirstOrDefault(x => x.Nickname == model.Nickname);
-
-            if (customer == null)
-            {
-                ModelState.AddModelError(string.Empty, "Podany użytkownik nie został znaleziony w bazie, proszę spróbować ponownie.");
-                return View();
-            }
-
-            var code = customer.Code;
-            var encodedPassword = Hashing.EncodePassword(model.Password, code);
-
-            if (customer.Password != encodedPassword)
-            {
-                ModelState.AddModelError(string.Empty, "Podane hasło jest niepoprawne, spróbuj ponownie");
-                return View();
-            }
-
-            Session["CustomerId"] = customer.Id;
-
-            return RedirectToAction("Index", "Products");
+            ModelState.AddModelError(string.Empty, "Oj oj, bardzo nieładne zachowanie koleżko! Oby to się więcej nie powtórzyło!");
+            return View();
         }
 
         public ActionResult LogOut()
