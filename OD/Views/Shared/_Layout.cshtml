@@ -6,10 +6,10 @@
         <title>Tytka Słodyczy</title>
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
-
         @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryUI")
         @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jqueryUI")
+        @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/knockout")       
     </head>
     <body>
@@ -20,10 +20,22 @@
             </div>
             <!---->
             <!-- NAVBAR -->
-            <div class="col-lg-3">
+            <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top borderlist-li">
+                <a class="navbar-brand" href="/Products/Index">Tytka Słodkości</a>
+                @if (Session["CustomerId"] == null)
+                {
+                    @Html.ActionLink("Zarejestruj", "SignIn", "Customer", null, new { @class = "btn pull-right", @style = "font-weight: bold;" })
+                    @Html.ActionLink("Zaloguj", "LogIn", "Customer", null, new { @class = "btn pull-right", @style = "font-weight: bold;" })
+                }
+                else
+                {
+                    @Html.ActionLink("Wyloguj", "LogOut", "Customer", null, new { @class = "btn pull-right", @style = "font-weight: bold;" })
+                }
+            </nav>
+            <div class="col-lg-3" style="padding-left: 0px;">
                 <ul class="nav navbar-inverse">
                     <li style="background-color: #428bca">
-                        @Html.ActionLink("Koszyk", "Index", "ShoppingCart", new { @style = "color: #333333;" })
+                        @Html.ActionLink("Koszyk", "Index", "Order", null, new { @style = "color: #333333;" })
                     </li>
                     <li>
                         @Html.ActionLink("Producenci", "Index", "Producers")

@@ -14,9 +14,9 @@ namespace OD.Configurations
             ToTable("Orders");
 
             Property(x => x.Id).IsRequired();
-            HasRequired(x => x.Customer).WithMany(x => x.Orders);
-            Property(x => x.OrderStatus).IsRequired();
-            Property(x => x.OrderCreateDT).IsRequired();
+            //HasRequired(x => x.Customer).WithMany(x => x.Orders);
+            //Property(x => x.OrderStatus).IsRequired();
+            Property(x => x.OrderDT).IsRequired();
         }
     }
 }

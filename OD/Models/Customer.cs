@@ -2,6 +2,8 @@
 using OD.Domain.Validators;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -16,42 +18,34 @@ namespace OD.Models
         /// <summary>
         /// Identyfikator.
         /// </summary>
+        [Display(Name = "Identyfikator")]
         public int? Id { get; set; }
 
         /// <summary>
-        /// Imię.
+        /// Nazwa użytownika.
         /// </summary>
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// Nazwisko.
-        /// </summary>
-        public string LastName { get; set; }
-
-        /// <summary>
-        /// Miasto.
-        /// </summary>
-        public string City { get; set; }
-
-        /// <summary>
-        /// Kraj.
-        /// </summary>
-        public string Country { get; set; }
-
-        /// <summary>
-        /// Nickname.
-        /// </summary>
+        [Display(Name = "Nazwa użytownika")]
         public string Nickname { get; set; }
 
         /// <summary>
         /// Hasło.
         /// </summary>
+        [Display(Name = "Hasło")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         /// <summary>
-        /// Numer telefonu.
+        /// Sól wykorzystywana do hashowania
         /// </summary>
-        public string PhoneNumber { get; set; }
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Powtórz hasło.
+        /// </summary>
+        [Display(Name = "Powtórz hasło")]
+        [NotMapped]
+        [DataType(DataType.Password)]
+        public string CheckPassword { get; set; }
 
         /// <summary>
         /// Lista zamówień.

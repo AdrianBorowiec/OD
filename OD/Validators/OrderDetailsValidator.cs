@@ -11,11 +11,9 @@ namespace OD.Validators
     {
         public OrderDetailsValidator()
         {
-            RuleFor(x => x.Id).NotEmpty();
             RuleFor(x => x.Order).NotEmpty();
             RuleFor(x => x.Product).NotEmpty();
             RuleFor(x => x.Quantity).NotEmpty();
-            RuleFor(x => x.UnitPrice).NotEmpty();
         }
     }
 }

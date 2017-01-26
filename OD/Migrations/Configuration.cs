@@ -17,17 +17,6 @@ namespace OD.Migrations
 
         protected override void Seed(Db ctx)
         {
-            var users = new List<Customer>
-            {
-                new Customer { FirstName = "Adrian", LastName = "Borowiec", City = "Poznañ", Country = "Polska", Nickname = "Boro", Password = "pw", PhoneNumber = "606221460" },
-                new Customer { FirstName = "Kamila", LastName = "Ziemba", City = "Poznañ", Country = "Polska", Nickname = "Kama", Password = "pw", PhoneNumber = "725323006" },
-                new Customer { FirstName = "Agnieszka", LastName = "Pastwa", City = "Czersk", Country = "Polska", Nickname = "Aga", Password = "pw", PhoneNumber = "662612291" }
-            };
-
-            users.ForEach(x => ctx.Customers.AddOrUpdate(n => n.Nickname, x));
-            ctx.SaveChanges();
-
-
             var producers = new List<Producer>
             {
                 new Producer { Name = "Ferrero", City = "Alba", Country = "W³ochy", ApartmentNumber = "1", Street = "Piazzale Pietro Ferrero", PhoneNumber = "(+39) 0039 0173 295111" },

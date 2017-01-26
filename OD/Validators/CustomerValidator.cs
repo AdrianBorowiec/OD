@@ -7,12 +7,8 @@ namespace OD.Domain.Validators
     {
         public CustomerValidator()
         {
-            RuleFor(x => x.Id).NotEmpty();
-            RuleFor(x => x.Nickname).NotEmpty();
-            RuleFor(x => x.Nickname).Length(0, 50);
-            RuleFor(x => x.Password).NotEmpty();
-            RuleFor(x => x.FirstName).NotEmpty();
-            RuleFor(x => x.LastName).NotEmpty();
+            RuleFor(x => x.Nickname).NotEmpty().Length(1, 25).WithMessage("Nazwa użytkownika może mieć maksymalnie 25 znaków!");
+            RuleFor(x => x.Password).NotEmpty().Length(6, 25).WithMessage("Hasło musi mieć minimum 6 znaków!");
         }
     }
 }
